@@ -14,11 +14,20 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="C0752248"
+        android:text="@string/UserId"
         android:textColor="#2196F3"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtStudentName"
+        android:layout_width="254dp"
+        android:layout_height="48dp"
+        android:text="Udhay Mahajan"
+        android:textSize="36sp"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="453dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
