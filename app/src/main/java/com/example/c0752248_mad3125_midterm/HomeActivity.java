@@ -18,6 +18,9 @@ import java.nio.charset.StandardCharsets;
 public class HomeActivity extends AppCompatActivity {
     String rocketId = "";
     String missionName = "";
+    String flightNumber;
+    String launchYear;
+    String rocketType;
     public MyListData[] myListData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,17 +49,15 @@ public class HomeActivity extends AppCompatActivity {
                     System.out.println(mObject.get("mission_name"));
 
                     missionName = mObject.get("mission_name").toString();
+                    flightNumber = mObject.get("flight_number").toString();
+                    launchYear = mObject.get("launch_year").toString();
+
                     mObject2 = mObject.getJSONObject("rocket");
                     rocketId = mObject2.getString("rocket_id");
+                    rocketType = mObject2.getString("rocket_type");
                     System.out.println("==========="+rocketId);
-//                    for (int j = 0; j < mJSONArray1.length(); j++)
-//                    {
-//                        JSONObject mObject1 = mJSONArray1.getJSONObject(j);
-//                        key = mObject.get("rocket_id").toString();
-//                    }
 
-
-                    MyListData myListData1 = new MyListData(missionName);
+                    MyListData myListData1 = new MyListData(missionName,flightNumber,launchYear,rocketId,rocketType);
 
                     MyListData.DataList.add(myListData1);
                     Log.d("DATA", mObject.toString());

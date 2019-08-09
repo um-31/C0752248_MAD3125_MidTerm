@@ -36,7 +36,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(view.getContext(), DetailActivity.class);
-                    //intent.putExtra();
+                    intent.putExtra("sendData",myListData);
                     view.getContext().startActivity(intent);
                 }
             });
