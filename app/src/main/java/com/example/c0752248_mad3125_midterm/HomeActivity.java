@@ -16,8 +16,8 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 public class HomeActivity extends AppCompatActivity {
-    String key = "";
-    String value = "";
+    String rocketId = "";
+    String missionName = "";
     public MyListData[] myListData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,19 +36,32 @@ public class HomeActivity extends AppCompatActivity {
             try
             {
                 JSONArray mJSONArray = new JSONArray(userJson);
+                JSONArray mJSONArray1;
                 for (int i = 0; i < mJSONArray.length(); i++)
                 {
                     JSONObject mObject = mJSONArray.getJSONObject(i);
+                    JSONObject mObject2;
+
                     System.out.println("----------------");
                     System.out.println(mObject.get("mission_name"));
 
-                    value = mObject.get("mission_name").toString();
+                    missionName = mObject.get("mission_name").toString();
+                    mObject2 = mObject.getJSONObject("rocket");
+                    rocketId = mObject2.getString("rocket_id");
+                    System.out.println("==========="+rocketId);
+//                    for (int j = 0; j < mJSONArray1.length(); j++)
+//                    {
+//                        JSONObject mObject1 = mJSONArray1.getJSONObject(j);
+//                        key = mObject.get("rocket_id").toString();
+//                    }
 
-                    MyListData myListData1 = new MyListData(value);
+
+                    MyListData myListData1 = new MyListData(missionName);
 
                     MyListData.DataList.add(myListData1);
                     Log.d("DATA", mObject.toString());
                 }
+                //System.out.println(rocketId);
                 myListData = MyListData.DataList.toArray(new MyListData [MyListData.DataList.size()]);
 
 //                myListData = MyListData.DataList.toArray();
