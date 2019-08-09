@@ -11,13 +11,17 @@ public class MyListData implements Serializable {
     private String launchYear;
     private String rocketId;
     private String rocketType;
+    private String imagePath;
+    private String imagePathSmall;
 
-    public MyListData(String missionName, String flightNumber, String launchYear, String rocketId, String rocketType) {
+    public MyListData(String missionName, String flightNumber, String launchYear, String rocketId, String rocketType, String imagePath, String imagePathSmall) {
         this.missionName = missionName;
         this.flightNumber = flightNumber;
         this.launchYear = launchYear;
         this.rocketId = rocketId;
         this.rocketType = rocketType;
+        this.imagePath = imagePath;
+        this.imagePathSmall = imagePathSmall;
     }
 
     public String getDescription() {
@@ -65,5 +69,21 @@ public class MyListData implements Serializable {
 
     public void setRocketType(String rocketType) {
         this.rocketType = rocketType;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public String getImagePathSmall() {
+        return imagePathSmall;
+    }
+
+    public void setImagePathSmall(String imagePathSmall) {
+        this.imagePathSmall = imagePathSmall;
     }
 }

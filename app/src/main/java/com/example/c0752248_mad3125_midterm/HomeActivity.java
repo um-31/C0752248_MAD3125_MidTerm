@@ -21,6 +21,8 @@ public class HomeActivity extends AppCompatActivity {
     String flightNumber;
     String launchYear;
     String rocketType;
+    String imgPathSmall;
+    String imgPath;
     public MyListData[] myListData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class HomeActivity extends AppCompatActivity {
                 {
                     JSONObject mObject = mJSONArray.getJSONObject(i);
                     JSONObject mObject2;
+                    JSONObject mObject3;
 
                     System.out.println("----------------");
                     System.out.println(mObject.get("mission_name"));
@@ -57,7 +60,11 @@ public class HomeActivity extends AppCompatActivity {
                     rocketType = mObject2.getString("rocket_type");
                     System.out.println("==========="+rocketId);
 
-                    MyListData myListData1 = new MyListData(missionName,flightNumber,launchYear,rocketId,rocketType);
+                    mObject3 = mObject.getJSONObject("links");
+                    imgPath = mObject3.getString("mission_patch");
+                    imgPathSmall = mObject3.getString("mission_patch_small");
+
+                    MyListData myListData1 = new MyListData(missionName,flightNumber,launchYear,rocketId,rocketType,imgPath,imgPathSmall);
 
                     MyListData.DataList.add(myListData1);
                     Log.d("DATA", mObject.toString());
