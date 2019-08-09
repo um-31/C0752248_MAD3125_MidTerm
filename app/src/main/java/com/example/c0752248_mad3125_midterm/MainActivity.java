@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-        if (temp != 0) {
+        if (temp == login.length) {
             Toast.makeText(this, "Wrong UserID or Password", Toast.LENGTH_SHORT).show();
         }
     }
