@@ -1,5 +1,6 @@
 package com.example.c0752248_mad3125_midterm;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +35,8 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
             holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(view.getContext(),"click on item: "+myListData.getDescription(),Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(view.getContext(), DetailActivity.class);
+                    view.getContext().startActivity(intent);
                 }
             });
         }
